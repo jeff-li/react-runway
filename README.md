@@ -1,6 +1,16 @@
 # react-starter-pack
 A starter pack for react with Ant Design
 
+✅ ESLint  
+✅ React Router  
+⬜️ Ant Design  
+⬜️ Formik  
+⬜️ Authentication with Firebase  
+⬜️ Authentication with Auth0  
+⬜️ Context  
+⬜️ Redux  
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

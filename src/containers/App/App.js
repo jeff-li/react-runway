@@ -18,7 +18,7 @@ const App = () => (
         <Route path="/login">
           <Login />
         </Route>
-        <PrivateRoute path="/">
+        <PrivateRoute exact path="/">
           <Home />
         </PrivateRoute>
         <Route path="*">
