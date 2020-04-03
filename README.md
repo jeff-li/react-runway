@@ -1,6 +1,10 @@
+![Node.js CI](https://github.com/jeff-li/react-starter-pack/workflows/Node.js%20CI/badge.svg) [![codecov](https://codecov.io/gh/jeff-li/react-starter-pack/branch/master/graph/badge.svg)](https://codecov.io/gh/jeff-li/react-starter-pack)
+
 # react-starter-pack
 A starter pack for react with Ant Design
 
+✅ Github Actions
+✅ Codecov  
 ✅ ESLint  
 ✅ React Router  
 ⬜️ Ant Design  
