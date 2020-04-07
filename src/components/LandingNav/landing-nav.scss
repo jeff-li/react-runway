@@ -1,0 +1,28 @@
+.logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
+.nav {
+  z-index: 1;
+  box-shadow: 0 5px 8px fade(#000, 15);
+  position: relative;
+  top: 0;
+
+  .nav-logo {
+    position: relative;
+    line-height: 64px;
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 0;
+    float: left;
+  }
+
+  .nav-menu-item {
+    float: right;
+  }
+}
