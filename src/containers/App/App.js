@@ -4,21 +4,25 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import Landing from '../Landing';
 import Login from '../Login';
 import Home from '../Home';
 import PrivateRoute from '../../components/PrivateRoute';
 import NoMatch from '../../components/NoMatch';
-import './App.css';
+import './App.scss';
 
 const App = () => (
   <Router>
     <div>
       <Switch>
         {/* children elements as recommended method in react router v5 */}
+        <Route exact path="/">
+          <Landing />
+        </Route>
         <Route path="/login">
           <Login />
         </Route>
-        <PrivateRoute exact path="/">
+        <PrivateRoute path="/home">
           <Home />
         </PrivateRoute>
         <Route path="*">
