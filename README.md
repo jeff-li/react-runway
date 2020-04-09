@@ -1,13 +1,22 @@
-![Node.js CI](https://github.com/jeff-li/react-starter-pack/workflows/Node.js%20CI/badge.svg) [![codecov](https://codecov.io/gh/jeff-li/react-starter-pack/branch/master/graph/badge.svg)](https://codecov.io/gh/jeff-li/react-starter-pack)
 
-# react-starter-pack
-A starter pack for react with Ant Design
+<h1 align="center">react-starter-pack</h1>
+<div align="center">
 
-✅ Github Actions
+A starter pack for your React + Ant Design project
+
+![Node.js CI](https://github.com/jeff-li/react-starter-pack/workflows/Node.js%20CI/badge.svg)
+[![codecov](https://codecov.io/gh/jeff-li/react-starter-pack/branch/master/graph/badge.svg)](https://codecov.io/gh/jeff-li/react-starter-pack)
+[![antd](https://img.shields.io/badge/antd-^4.1.0-blue.svg?style=flat-square)](https://github.com/ant-design/ant-design)
+[![MIT](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+
+</div>
+
+## To-do List
+✅ Github Actions  
 ✅ Codecov  
 ✅ ESLint  
 ✅ React Router  
-⬜️ Ant Design  
+✅ Ant Design  
 ⬜️ Formik  
 ⬜️ Authentication with Firebase  
 ⬜️ Authentication with Auth0  

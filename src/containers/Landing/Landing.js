@@ -6,7 +6,7 @@ import LandingContent from '../../components/LandingContent';
 import LandingFooter from '../../components/LandingFooter';
 import './landing.scss';
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content } = Layout;
 
 const Landing = () => (
   <div>

@@ -40,4 +40,3 @@ class Home extends React.Component {
 }
 
 export default Home;
-{/* <Sidebar collapsed={this.state.collapsed} /> */}

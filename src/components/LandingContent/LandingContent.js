@@ -14,7 +14,7 @@ const LandingContent = () => (
         <Col xs={24} md={6} className="content-block">
           <div className="content-block-item">
             <div className="content-block-icon">
-              <img src="https://gw.alipayobjects.com/mdn/rms_ae7ad9/afts/img/A*CTp8T7RT-VkAAAAAAAAAAABkARQnAQ" />
+              <img alt="" src="https://gw.alipayobjects.com/mdn/rms_ae7ad9/afts/img/A*CTp8T7RT-VkAAAAAAAAAAABkARQnAQ" />
             </div>
             <div className="content-block-title">Title one</div>
             <div className="content-block-description">Description One</div>
@@ -23,7 +23,7 @@ const LandingContent = () => (
         <Col xs={24} md={6} className="content-block">
           <div className="content-block-item">
             <div className="content-block-icon">
-              <img src="https://gw.alipayobjects.com/mdn/rms_ae7ad9/afts/img/A*CTp8T7RT-VkAAAAAAAAAAABkARQnAQ" />
+              <img alt="" src="https://gw.alipayobjects.com/mdn/rms_ae7ad9/afts/img/A*CTp8T7RT-VkAAAAAAAAAAABkARQnAQ" />
             </div>
             <div className="content-block-title">Title one</div>
             <div className="content-block-description">Description One</div>
@@ -32,7 +32,7 @@ const LandingContent = () => (
         <Col xs={24} md={6} className="content-block">
           <div className="content-block-item">
             <div className="content-block-icon">
-              <img src="https://gw.alipayobjects.com/mdn/rms_ae7ad9/afts/img/A*CTp8T7RT-VkAAAAAAAAAAABkARQnAQ" />
+              <img alt="" src="https://gw.alipayobjects.com/mdn/rms_ae7ad9/afts/img/A*CTp8T7RT-VkAAAAAAAAAAABkARQnAQ" />
             </div>
             <div className="content-block-title">Title one</div>
             <div className="content-block-description">Description One</div>
@@ -41,7 +41,7 @@ const LandingContent = () => (
         <Col xs={24} md={6} className="content-block">
           <div className="content-block-item">
             <div className="content-block-icon">
-              <img src="https://gw.alipayobjects.com/mdn/rms_ae7ad9/afts/img/A*CTp8T7RT-VkAAAAAAAAAAABkARQnAQ" />
+              <img alt="" src="https://gw.alipayobjects.com/mdn/rms_ae7ad9/afts/img/A*CTp8T7RT-VkAAAAAAAAAAABkARQnAQ" />
             </div>
             <div className="content-block-title">Title one</div>
             <div className="content-block-description">Description One</div>
