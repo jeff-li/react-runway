@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import fakeAuth from '../../utils/auth';
+import UserContext from '../../contexts/UserContext';
 
-function PrivateRoute({ children, ...rest }) {
+const PrivateRoute = ({ children, ...rest }) => {
+  const { currentUser } = useContext(UserContext);
   return (
     <Route
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
-      render={({ location }) => (fakeAuth.isAuthenticated ? (
+      render={({ location }) => (currentUser ? (
         children
       ) : (
         <Redirect
@@ -19,6 +20,6 @@ function PrivateRoute({ children, ...rest }) {
       ))}
     />
   );
-}
+};
 
 export default PrivateRoute;
