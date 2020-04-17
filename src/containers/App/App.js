@@ -6,14 +6,17 @@ import {
 } from 'react-router-dom';
 import Landing from '../Landing';
 import Login from '../Login';
+import SignUp from '../SignUp';
+import ForgotPassword from '../ForgotPassword';
 import Home from '../Home';
 import PrivateRoute from '../../components/PrivateRoute';
 import NoMatch from '../../components/NoMatch';
+import UserProvider from '../../components/UserProvider';
 import './App.scss';
 
 const App = () => (
-  <Router>
-    <div>
+  <UserProvider>
+    <Router>
       <Switch>
         {/* children elements as recommended method in react router v5 */}
         <Route exact path="/">
@@ -22,6 +25,12 @@ const App = () => (
         <Route path="/login">
           <Login />
         </Route>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/forgot-password">
+          <ForgotPassword />
+        </Route>
         <PrivateRoute path="/home">
           <Home />
         </PrivateRoute>
@@ -29,24 +38,8 @@ const App = () => (
           <NoMatch />
         </Route>
       </Switch>
-    </div>
-  </Router>
-  // <div className="App">
-  //   <header className="App-header">
-  //     <Button type="primary">Button</Button>
-  //     <img src={logo} className="App-logo" alt="logo" />
-  //     <p>
-  //       Edit <code>src/App.js</code> and save to reload.
-  //     </p>
-  //     <a
-  //       className="App-link"
-  //       href="https://reactjs.org"
-  //       target="_blank"
-  //       rel="noopener noreferrer"
-  //     >
-  //       Learn React
-  //     </a>
-  //   </header>
+    </Router>
+  </UserProvider>
 );
 
 export default App;

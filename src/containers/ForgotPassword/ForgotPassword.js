@@ -1,21 +1,17 @@
 import React, { useContext } from 'react';
-import { Link, useLocation, useHistory, Redirect } from 'react-router-dom';
-import { Form, Input, Button, Checkbox, Row, message } from 'antd';
+import { Link, Redirect } from 'react-router-dom';
+import { Form, Input, Button, Row, message } from 'antd';
 import { auth } from '../../firebase';
 import UserContext from '../../contexts/UserContext';
 
-
-const Login = () => {
+const ForgotPassword = () => {
   const { currentUser } = useContext(UserContext);
-  const history = useHistory();
-  const location = useLocation();
-  const { from } = location.state || { from: { pathname: '/' } };
 
-  const login = async (values) => {
-    const { email, password } = values;
+  const sendReset = async (values) => {
+    const { email } = values;
     try {
-      await auth.signInWithEmailAndPassword(email, password);
-      history.replace(from);
+      await auth.sendPasswordResetEmail(email);
+      message.success('An email has been sent to you');
     } catch (err) {
       const errorMessage = err.message;
       message.error(errorMessage);
@@ -38,7 +34,7 @@ const Login = () => {
           wrapperCol={{ span: 16 }}
           name="basic"
           initialValues={{ remember: true }}
-          onFinish={login}
+          onFinish={sendReset}
           onFinishFailed={onFinishFailed}
         >
           <Form.Item
@@ -49,34 +45,15 @@ const Login = () => {
             <Input />
           </Form.Item>
 
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
-          >
-            <Input.Password />
-          </Form.Item>
-
-          <Form.Item wrapperCol={{ offset: 8, span: 16 }} name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit">
-              Login
+              Reset Password
             </Button>
           </Form.Item>
         </Form>
         <p type="flex" align="middle">
-          New user?
-          {' '}
-          <Link to="/signup">
-            Sign up here
-          </Link>
-          <br />
-          {' '}
-          <Link to="/forgot-password">
-            Forgot Password?
+          <Link to="/login">
+            back to sign in page
           </Link>
         </p>
       </div>
@@ -84,4 +61,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;
