@@ -25,10 +25,10 @@ const App = () => (
         <Route path="/login">
           <Login />
         </Route>
-        {/* <Route path="/signup">
+        <Route path="/signup">
           <SignUp />
         </Route>
-        <Route path="/forgot-password">
+        {/* <Route path="/forgot-password">
           <ForgotPassword />
         </Route> */}
         <PrivateRoute path="/home">
