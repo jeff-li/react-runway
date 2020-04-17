@@ -15,7 +15,7 @@ A starter pack for your React + Ant Design project
 ✅ Github Actions  
 ✅ Codecov  
 ✅ ESLint  
-✅ React Router (using new hooks with 5.1.x) 
+✅ React Router (using new hooks with 5.1.x)  
 ✅ Ant Design v4  
 ✅ Authentication with Firebase  
 ✅ Function Component with State Hook instead of Class Component  
