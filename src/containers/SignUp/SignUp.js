@@ -11,11 +11,11 @@ const SignUp = () => {
     const { email, password, confirmPassword } = values;
     if (password === confirmPassword) {
       try {
-        const { user } = await auth.createUserWithEmailAndPassword(email, password);
+        await auth.createUserWithEmailAndPassword(email, password);
         history.push('/home');
       } catch (err) {
         setError(err.message);
-        message.error(err.message);
+        message.error(error);
       }
     }
     // auth.createUserWithEmailAndPassword()

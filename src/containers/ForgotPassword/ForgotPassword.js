@@ -1,16 +1,11 @@
 import React, { useContext } from 'react';
-import { Link, useLocation, useHistory, Redirect } from 'react-router-dom';
-import { Form, Input, Button, Checkbox, Row, message, Typography } from 'antd';
+import { Link, Redirect } from 'react-router-dom';
+import { Form, Input, Button, Row, message } from 'antd';
 import { auth } from '../../firebase';
 import UserContext from '../../contexts/UserContext';
 
-const { Title } = Typography;
-
 const ForgotPassword = () => {
   const { currentUser } = useContext(UserContext);
-  const history = useHistory();
-  const location = useLocation();
-  const { from } = location.state || { from: { pathname: '/' } };
 
   const sendReset = async (values) => {
     const { email } = values;
