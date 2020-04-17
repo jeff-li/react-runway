@@ -87,6 +87,7 @@ const SignUp = () => {
         </Form>
         <p type="flex" align="middle">
           Already have an account?
+          {' '}
           <Link to="/login">
             Sign in here
           </Link>

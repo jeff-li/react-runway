@@ -68,9 +68,15 @@ const Login = () => {
           </Form.Item>
         </Form>
         <p type="flex" align="middle">
-          New User?
+          New user?
+          {' '}
           <Link to="/signup">
             Sign up here
+          </Link>
+          <br />
+          {' '}
+          <Link to="/forgot-password">
+            Forgot Password?
           </Link>
         </p>
       </div>

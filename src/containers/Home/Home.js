@@ -10,10 +10,10 @@ const { Header, Sider, Content, Footer } = Layout;
 
 const Home = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const history = useHistory()
+  const history = useHistory();
 
-  const onCollapse = (collapsed) => {
-    setCollapsed(collapsed)
+  const onCollapse = (isCollapsed) => {
+    setCollapsed(isCollapsed);
   };
 
   const signOut = async () => {

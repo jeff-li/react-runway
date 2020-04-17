@@ -28,9 +28,9 @@ const App = () => (
         <Route path="/signup">
           <SignUp />
         </Route>
-        {/* <Route path="/forgot-password">
+        <Route path="/forgot-password">
           <ForgotPassword />
-        </Route> */}
+        </Route>
         <PrivateRoute path="/home">
           <Home />
         </PrivateRoute>
