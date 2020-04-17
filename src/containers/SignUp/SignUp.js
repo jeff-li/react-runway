@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { Form, Input, Button, message, Row } from 'antd';
 
-const SignUp = ({ history }) => {
+const SignUp = () => {
   const [error, setError] = useState('');
+  const history = useHistory();
 
   const createUserWithEmailAndPasswordHandler = async (values) => {
     const { email, password, confirmPassword } = values;
@@ -95,4 +96,4 @@ const SignUp = ({ history }) => {
     </Row>
   );
 };
-export default withRouter(SignUp);
+export default SignUp;
