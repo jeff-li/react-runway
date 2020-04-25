@@ -7,7 +7,6 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import './home-menu.scss';
 
 const { SubMenu } = Menu;
 

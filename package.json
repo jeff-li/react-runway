@@ -9,11 +9,11 @@
     "antd": "^4.1.0",
     "firebase": "^7.14.0",
     "formik": "^2.1.4",
-    "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.0"
   },
   "scripts": {
     "lint": "eslint . --ext .js --color",

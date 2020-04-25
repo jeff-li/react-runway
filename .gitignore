@@ -106,3 +106,7 @@ dist
 
 # firebase config
 src/firebase.js
+
+*.DS_Store
+
+build/

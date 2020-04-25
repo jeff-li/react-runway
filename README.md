@@ -20,8 +20,9 @@ A starter pack for your React + Ant Design project
 ✅ Authentication with Firebase  
 ✅ Function Component with State Hook instead of Class Component  
 ✅ React Context API for "global" data  
+✅ Styled Components   
+⬜️ Cloud Firestore for scalable NoSQL cloud database  
 ⬜️ Formik  
-⬜️ Authentication with Auth0  
 ⬜️ Redux  
 
 
