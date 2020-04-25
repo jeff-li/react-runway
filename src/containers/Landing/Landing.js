@@ -1,12 +1,17 @@
 import React from 'react';
 import Layout from 'antd/lib/layout';
+import styled from 'styled-components';
 import LandingNav from '../../components/LandingNav';
 import LandingBanner from '../../components/LandingBanner';
 import LandingContent from '../../components/LandingContent';
 import LandingFooter from '../../components/LandingFooter';
-import './landing.scss';
 
 const { Header, Footer, Content } = Layout;
+
+const StyledFooter = styled(Footer)`
+  text-align: center;
+  padding: 0;
+`;
 
 const Landing = () => (
   <div>
@@ -18,9 +23,9 @@ const Landing = () => (
         <LandingBanner id="landing-banner" key="Banner0_1" />
         <LandingContent id="landing-content" />
       </Content>
-      <Footer style={{ textAlign: 'center' }} className="footer">
+      <StyledFooter>
         <LandingFooter id="landing-footer" key="Footer1_0" />
-      </Footer>
+      </StyledFooter>
     </Layout>
   </div>
 );

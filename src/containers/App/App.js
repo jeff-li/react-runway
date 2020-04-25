@@ -12,7 +12,8 @@ import Home from '../Home';
 import PrivateRoute from '../../components/PrivateRoute';
 import NoMatch from '../../components/NoMatch';
 import UserProvider from '../../components/UserProvider';
-import './App.scss';
+import 'antd/dist/antd.css';
+
 
 const App = () => (
   <UserProvider>

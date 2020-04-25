@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 import Layout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
 import HomeMenu from '../../components/HomeMenu';
 import { auth } from '../../firebase';
-import './home.scss';
 
 const { Header, Sider, Content, Footer } = Layout;
+
+const MenuItem = styled(Menu.Item)`
+  float: right;
+`;
+
+const NavLogo = styled.div`
+  position: relative;
+  line-height: 64px;
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+`;
 
 const Home = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -24,17 +38,18 @@ const Home = () => {
       console.log(err);
     }
   };
+  
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-        <div className="logo" />
+        <NavLogo />
         <HomeMenu />
       </Sider>
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>
           <Menu theme="dark" mode="horizontal" onClick={signOut}>
-            <Menu.Item key="1" className="nav-menu-item">Sign Out</Menu.Item>
+            <MenuItem key="1">Sign Out</MenuItem>
           </Menu>
         </Header>
         <Content style={{ margin: '0 16px' }}>
