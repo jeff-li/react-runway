@@ -40,6 +40,16 @@ const Home = () => {
     setCollapsed(isCollapsed);
   };
 
+  const addNewCollection = () => {
+    firestore.collection('users').add({
+      'name': 'Test'
+    }).then(docRef => {
+      console.log(docRef)
+    }).catch(err => {
+      console.log(err)
+    })
+  };
+
   const signOut = async () => {
     try {
       await auth.signOut();
@@ -67,7 +77,10 @@ const Home = () => {
             { currentUser.email }
           </div>
           <div>
-            { users.map(user => user.Name) }
+            { users.map(user => user.name) }
+          </div>
+          <div>
+            <button onClick={addNewCollection}>Add a new document</button>
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
