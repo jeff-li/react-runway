@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Layout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
 import HomeMenu from '../../components/HomeMenu';
-import { auth } from '../../firebase';
+import UserContext from '../../contexts/UserContext';
+import { auth, firestore } from '../../firebase';
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -23,11 +24,30 @@ const NavLogo = styled.div`
 `;
 
 const Home = () => {
-  const [collapsed, setCollapsed] = useState(false);
   const history = useHistory();
+  const { currentUser } = useContext(UserContext);
+
+  const [collapsed, setCollapsed] = useState(false);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    firestore.collection('users').get().then((data) => {
+      setUsers(data.docs.map(doc => doc.data()));
+    });
+  }, []);
 
   const onCollapse = (isCollapsed) => {
     setCollapsed(isCollapsed);
+  };
+
+  const addNewCollection = () => {
+    firestore.collection('users').add({
+      'name': 'Test'
+    }).then(docRef => {
+      console.log(docRef)
+    }).catch(err => {
+      console.log(err)
+    })
   };
 
   const signOut = async () => {
@@ -38,7 +58,6 @@ const Home = () => {
       console.log(err);
     }
   };
-  
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -47,14 +66,21 @@ const Home = () => {
         <HomeMenu />
       </Sider>
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }}>
+        <Header>
           <Menu theme="dark" mode="horizontal" onClick={signOut}>
             <MenuItem key="1">Sign Out</MenuItem>
           </Menu>
         </Header>
         <Content style={{ margin: '0 16px' }}>
-          <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-            Bill is a cat.
+          <div>
+            Email:
+            { currentUser.email }
+          </div>
+          <div>
+            { users.map(user => user.name) }
+          </div>
+          <div>
+            <button onClick={addNewCollection}>Add a new document</button>
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
