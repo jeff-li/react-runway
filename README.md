@@ -1,12 +1,12 @@
 
-<h1 align="center">react-starter-pack</h1>
+<h1 align="center">React CRA Runway</h1>
 <div align="center">
 
-A starter pack for your React + Ant Design project
+React + Ant Design. A template used by (Airstrip)[https://github.com/jeff-li/airstrip] generator
 
 ![Node.js CI](https://github.com/jeff-li/react-starter-pack/workflows/Node.js%20CI/badge.svg)
 [![codecov](https://codecov.io/gh/jeff-li/react-starter-pack/branch/master/graph/badge.svg)](https://codecov.io/gh/jeff-li/react-starter-pack)
-[![antd](https://img.shields.io/badge/antd-^4.1.0-blue.svg?style=flat-square)](https://github.com/ant-design/ant-design)
+[![antd](https://img.shields.io/badge/antd-^4.16.13-blue.svg?style=flat-square)](https://github.com/ant-design/ant-design)
 [![MIT](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
 </div>
@@ -15,14 +15,14 @@ A starter pack for your React + Ant Design project
 ✅ Github Actions  
 ✅ Codecov  
 ✅ ESLint  
-✅ React Router (using new hooks with 5.1.x)  
+✅ React Router 6  
 ✅ Ant Design v4  
 ✅ Authentication with Firebase  
 ✅ Function Component with State Hook instead of Class Component  
 ✅ React Context API for "global" data  
 ✅ Styled Components   
 ✅ Cloud Firestore for scalable NoSQL cloud database  
-⬜️ Formik  
+⬜️ React Hook Form  
 ⬜️ Redux  
 
 

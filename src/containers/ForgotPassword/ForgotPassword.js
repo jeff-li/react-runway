@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { Form, Input, Button, Row, message } from 'antd';
+import { Link, Navigate } from 'react-router-dom';
+import {
+  Form, Input, Button, Row, message,
+} from 'antd';
 import { auth } from '../../firebase';
 import UserContext from '../../contexts/UserContext';
 
@@ -23,7 +25,7 @@ const ForgotPassword = () => {
   };
 
   if (currentUser) {
-    return <Redirect to="/home" />;
+    return <Navigate to="/home" />;
   }
 
   return (

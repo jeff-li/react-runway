@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+
+import {
+  Form, Input, Button, message, Row,
+} from 'antd';
 import { auth } from '../../firebase';
-import { Form, Input, Button, message, Row } from 'antd';
 
 const SignUp = () => {
   const [error, setError] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const createUserWithEmailAndPasswordHandler = async (values) => {
     const { email, password, confirmPassword } = values;
     if (password === confirmPassword) {
-      try {
-        await auth.createUserWithEmailAndPassword(email, password);
-        history.push('/home');
-      } catch (err) {
-        setError(err.message);
-        message.error(error);
-      }
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          navigate('/home');
+        })
+        .catch((err) => {
+          setError(err.message);
+          message.error(error);
+        });
     }
-    // auth.createUserWithEmailAndPassword()
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -71,7 +75,7 @@ const SignUp = () => {
                   if (!value || getFieldValue('password') === value) {
                     return Promise.resolve();
                   }
-                  return Promise.reject('The two passwords that you entered do not match!');
+                  return Promise.reject(new Error('The two passwords that you entered do not match!'));
                 },
               }),
             ]}

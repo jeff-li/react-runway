@@ -1,13 +1,19 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Layout from 'antd/lib/layout';
+import {
+  collection, query, getDocs, doc, setDoc,
+} from 'firebase/firestore';
+
 import Menu from 'antd/lib/menu';
 import HomeMenu from '../../components/HomeMenu';
 import UserContext from '../../contexts/UserContext';
-import { auth, firestore } from '../../firebase';
+import { auth, db } from '../../firebase';
 
-const { Header, Sider, Content, Footer } = Layout;
+const {
+  Header, Sider, Content, Footer,
+} = Layout;
 
 const MenuItem = styled(Menu.Item)`
   float: right;
@@ -24,36 +30,37 @@ const NavLogo = styled.div`
 `;
 
 const Home = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { currentUser } = useContext(UserContext);
 
   const [collapsed, setCollapsed] = useState(false);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    firestore.collection('users').get().then((data) => {
-      setUsers(data.docs.map(doc => doc.data()));
-    });
+    async function fetchData() {
+      const q = query(collection(db, 'users'));
+      const querySnapshot = await getDocs(q);
+      setUsers(querySnapshot.docs.map((document) => document.data()));
+    }
+    fetchData();
   }, []);
 
   const onCollapse = (isCollapsed) => {
     setCollapsed(isCollapsed);
   };
 
-  const addNewCollection = () => {
-    firestore.collection('users').add({
-      'name': 'Test'
-    }).then(docRef => {
-      console.log(docRef)
-    }).catch(err => {
-      console.log(err)
-    })
+  const addNewCollection = async () => {
+    await setDoc(doc(db, 'cities', 'LA'), {
+      name: 'Los Angeles',
+      state: 'CA',
+      country: 'USA',
+    });
   };
 
   const signOut = async () => {
     try {
       await auth.signOut();
-      history.push('/');
+      navigate('/');
     } catch (err) {
       console.log(err);
     }
@@ -77,10 +84,10 @@ const Home = () => {
             { currentUser.email }
           </div>
           <div>
-            { users.map(user => user.name) }
+            { users.map((user) => user.name) }
           </div>
           <div>
-            <button onClick={addNewCollection}>Add a new document</button>
+            <button type="button" onClick={addNewCollection}>Add a new document</button>
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>

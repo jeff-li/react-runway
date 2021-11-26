@@ -1,11 +1,8 @@
 import React from 'react';
 import Menu from 'antd/lib/menu';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined,
+  DesktopOutlined, PieChartOutlined, FileOutlined, TeamOutlined, UserOutlined,
 } from '@ant-design/icons';
 
 const { SubMenu } = Menu;

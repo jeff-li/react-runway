@@ -1,25 +1,30 @@
 import React, { useContext } from 'react';
-import { Link, useLocation, useHistory, Redirect } from 'react-router-dom';
-import { Form, Input, Button, Checkbox, Row, message } from 'antd';
+import {
+  Link, useLocation, useNavigate, Navigate,
+} from 'react-router-dom';
+import {
+  Form, Input, Button, Checkbox, Row, message,
+} from 'antd';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 import UserContext from '../../contexts/UserContext';
 
-
 const Login = () => {
   const { currentUser } = useContext(UserContext);
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: '/' } };
 
   const login = async (values) => {
     const { email, password } = values;
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      history.replace(from);
-    } catch (err) {
-      const errorMessage = err.message;
-      message.error(errorMessage);
-    }
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        message.error(errorMessage);
+      });
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -27,7 +32,7 @@ const Login = () => {
   };
 
   if (currentUser) {
-    return <Redirect to="/home" />;
+    return <Navigate to="/home" />;
   }
 
   return (

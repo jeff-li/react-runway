@@ -2,17 +2,15 @@ import React from 'react';
 import Button from 'antd/lib/button';
 import styled from 'styled-components';
 
-const Banner = () => {
-  return (
-    <LandingBanner>
-      <BannerTextWrapper>
-        <BannerTitle> React Starter Pack </BannerTitle>
-        <BannerContent> Quick start with Ant Design 4 </BannerContent>
-        <BannerButton ghost key="button"> Explore </BannerButton>
-      </BannerTextWrapper>
-    </LandingBanner>
-  );
-};
+const Banner = () => (
+  <LandingBanner>
+    <BannerTextWrapper>
+      <BannerTitle> React Starter Pack </BannerTitle>
+      <BannerContent> Quick start with Ant Design 4 </BannerContent>
+      <BannerButton ghost key="button"> Explore </BannerButton>
+    </BannerTextWrapper>
+  </LandingBanner>
+);
 
 export default Banner;
 

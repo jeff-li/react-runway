@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
 } from 'react-router-dom';
 import Landing from '../Landing';
@@ -14,31 +14,27 @@ import NoMatch from '../../components/NoMatch';
 import UserProvider from '../../components/UserProvider';
 import 'antd/dist/antd.css';
 
-
 const App = () => (
   <UserProvider>
     <Router>
-      <Switch>
-        {/* children elements as recommended method in react router v5 */}
-        <Route exact path="/">
-          <Landing />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
-        <Route path="/forgot-password">
-          <ForgotPassword />
-        </Route>
-        <PrivateRoute path="/home">
-          <Home />
-        </PrivateRoute>
-        <Route path="*">
-          <NoMatch />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route
+          path="/home"
+          element={(
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          )}
+        />
+        {/* Using path="*"" means "match anything", so this route
+          acts like a catch-all for URLs that we don't have explicit
+          routes for. */}
+        <Route path="*" element={<NoMatch />} />
+      </Routes>
     </Router>
   </UserProvider>
 );

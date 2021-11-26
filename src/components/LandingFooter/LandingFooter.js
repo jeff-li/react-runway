@@ -19,15 +19,12 @@ const CopyrightWrapper = styled.div`
   border-top: 1px solid rgba(233,233,233,.1);
 `;
 
-const Footer = () => {
-  return (
-    <LandingFooterWrapper>
-      <CopyrightWrapper className="copyright-wrapper">
-        <span> ©2020 by Jeff Li </span>
-      </CopyrightWrapper>
-    </LandingFooterWrapper>
-  );
-};
-
+const Footer = () => (
+  <LandingFooterWrapper>
+    <CopyrightWrapper className="copyright-wrapper">
+      <span> ©2020 by Jeff Li </span>
+    </CopyrightWrapper>
+  </LandingFooterWrapper>
+);
 
 export default Footer;
